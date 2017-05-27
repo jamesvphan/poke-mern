@@ -6,6 +6,8 @@ var fs = require('fs')
 
 // Create APP
 var app = express()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 
 // declare port to listen to. process.env.PORT to be used if deployed
 var PORT = process.env.PORT || 3000
@@ -35,15 +37,13 @@ app.get('/api/users', (req, res) => {
   res.json(test_data)
 })
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.post('/api/users', (req, res) => {
-  console.log("request body: " + req.body)
+app.post('/api/users/', (req, res) => {
+  console.log("request body: " + req.body + "dsf" + req.body.id + req.body.username)
   let newUser = req.body
-  newUser.id = test_data.length + 1
+  console.log(newUser)
   test_data.push(newUser)
-  res.status(200).send(JSON.stringify(newUser))
+  res.json(newUser)
 })
 
 // Error Handler for any other type of request
