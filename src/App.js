@@ -13,7 +13,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    let url = 'http://localhost:3000/api/users'
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({
+          users: [...data]
+        })
+      })
   }
 
 
@@ -31,6 +38,13 @@ class App extends Component {
         ID: <input type="text" onChange={this.handleOnChange}/>
         Username<input type="text" onChange={this.handleOnChange}/>
         <input type="submit"/>
+        <ul>
+          {
+            this.state.users.map((user, index )=>{
+              return <li key={index}>{user.username}</li>
+            })
+          }
+        </ul>
       </div>
     )
   }
