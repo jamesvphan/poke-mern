@@ -10,8 +10,15 @@ var mongoose = require('mongoose')
 // var MongoClient = mongodb.MongoClient
 var db_url = "mongodb://admin:admin@ds155651.mlab.com:55651/pokegotchi_users"
 
-mongoose.connect(url)
+mongoose.connect(db_url)
+var db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error: '))
+db.once('open', function() {
+  console.log("successfully connected!")
+})
 
+let userOne = {"username": "test"}
+db.collection("users").insert(userOne)
 // Create APP
 var app = express()
 app.use(bodyParser.json())
@@ -33,12 +40,12 @@ app.engine('html', function(path, options, callbacks) {
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(function(req, res, next) {
- res.setHeader(‘Access-Control-Allow-Origin’, ‘*’);
- res.setHeader(‘Access-Control-Allow-Credentials’, ‘true’);
- res.setHeader(‘Access-Control-Allow-Methods’, ‘GET,HEAD,OPTIONS,POST,PUT,DELETE’);
- res.setHeader(‘Access-Control-Allow-Headers’, ‘Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers’);
+ res.setHeader('Access-Control-Allow-Origin', '*');
+ res.setHeader('Access-Control-Allow-Credentials', 'true');
+ res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+ res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 //and remove cacheing so we get the most recent comments
- res.setHeader(‘Cache-Control’, ‘no-cache’);
+ res.setHeader('Cache-Control', 'no-cache');
  next();
 });
 
@@ -47,13 +54,14 @@ var test_data = [
   {id: 2,username: "jamesvphan"}
 ]
 
-var
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'public'), 'index.html')
 })
 
 app.get('/api/users', (req, res) => {
-  res.json(test_data)
+  db.collection("users").find().toArray(function(err, doc) {
+    res.json(doc)
+  })
 })
 
 

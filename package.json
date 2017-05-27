@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_PATH=$NODE_PATH:./src node server",
     "dev": "npm start & webpack-dev-server --progress --colors",
-    "webpack": "webpack nodemon server.js node server.js"
+    "webpack": "webpack"
   },
   "keywords": [],
   "author": "",

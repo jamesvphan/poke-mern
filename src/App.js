@@ -18,10 +18,12 @@ class App extends Component {
     fetch(url)
       .then((resp) => resp.json())
       .then((data) => {
+        debugger
         this.setState({
-          users: [...data]
+          users: data
         })
       })
+    debugger
   }
 
 
@@ -63,6 +65,9 @@ class App extends Component {
   }
 
   render() {
+    let users = this.state.users.map((user, index)=>{
+      return <li key={index}>{user.username}</li>
+    })
     return (
       <div>
         <h1>Welcome...</h1>
@@ -72,11 +77,7 @@ class App extends Component {
         <input type="submit"/>
         </form>
         <ul>
-          {
-            this.state.users.map((user, index )=>{
-              return <li key={index}>{user.id}</li>
-            })
-          }
+          {users}
         </ul>
       </div>
     )
