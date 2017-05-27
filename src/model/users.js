@@ -5,6 +5,7 @@ const UsersSchema = new Schema({
   username: {
     type: String,
     unique: true,
+    required: true
   },
   team: [
     {
