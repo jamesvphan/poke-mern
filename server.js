@@ -17,8 +17,25 @@ db.once('open', function() {
   console.log("successfully connected!")
 })
 
-let userOne = {"username": "test"}
-db.collection("users").insert(userOne)
+db.collection("users").createIndex({username: 1},{unique: true, dropDups: true})
+
+let userOne = new User({
+  username: "test"
+})
+
+let userTwo = new User({
+  username: "hello"
+})
+// db.User.insert(userOne)
+userOne.save(function(err) {
+  if (err) console.log(err);
+  console.log("User saved!")
+})
+userTwo.save(function(err) {
+  if (err) console.log(err);
+  console.log("User saved!")
+})
+
 // Create APP
 var app = express()
 app.use(bodyParser.json())
@@ -49,10 +66,6 @@ app.use(function(req, res, next) {
  next();
 });
 
-var test_data = [
-  {id: 1, username: "test"},
-  {id: 2,username: "jamesvphan"}
-]
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'public'), 'index.html')

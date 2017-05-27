@@ -18,12 +18,10 @@ class App extends Component {
     fetch(url)
       .then((resp) => resp.json())
       .then((data) => {
-        debugger
         this.setState({
           users: data
         })
       })
-    debugger
   }
 
 
@@ -61,7 +59,11 @@ class App extends Component {
         // ideally, show error to user.
         console.log("Error adding bug:", err);
       }
-    });
+    })
+    this.setState({
+      id: "",
+      username: ""
+    })
   }
 
   render() {
@@ -76,9 +78,9 @@ class App extends Component {
         Username<input type="text" name="username" onChange={this.handleOnChange}/>
         <input type="submit"/>
         </form>
-        <ul>
+        <ol>
           {users}
-        </ul>
+        </ol>
       </div>
     )
   }
