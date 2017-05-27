@@ -1,5 +1,6 @@
 // Packages
 var express = require('express')
+var bodyParser = require('body-parser')
 var path = require('path')
 var fs = require('fs')
 
@@ -14,32 +15,24 @@ app.set('view engine', 'html')
 
 // defines how to handle HTML file
 app.engine('html', function(path, options, callbacks) {
-  fs.readFile(path, 'utf-B', callback)
+  fs.readFile(path, 'utf-8', callback)
 })
 
 // handle bundle file, tell server to return static files
 // console.log(path.join(__dirname, 'public'))
 app.use(express.static(path.join(__dirname, 'public')))
 
-//Define ROUTES
-// any route that we enter in browser, we will respond with this request
-// app.all('/*', function(req, res) {
-//   res.send('\
-//     <!DOCTYPE html>\
-//     <html lang="en">\
-//       <head>\
-//         <title>MEAN Poke App</title>\
-//       </head>\
-//       <body>\
-//         <h1>Hello World</h1>\
-//         <script src="bundle.js"></script>\
-//       </body>\
-//     </html>\
-//   ')
-// })
+var test_data = [
+  {id: 1, username: "test"},
+  {id: 2,username: "jamesvphan"}
+]
 
-app.get('/*', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'public'), 'index.html')
+})
+
+app.get('/api/users', (req, res) => {
+  res.status(200).send(JSON.stringify(test_data))
 })
 
 // Error Handler for any other type of request
