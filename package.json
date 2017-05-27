@@ -6,14 +6,17 @@
   "scripts": {
     "start": "NODE_PATH=$NODE_PATH:./src node server",
     "dev": "npm start & webpack-dev-server --progress --colors",
-    "webpack": "webpack"
+    "webpack": "webpack nodemon server.js node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "mongoose": "^4.10.3",
+    "nodemon": "^1.11.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1"
