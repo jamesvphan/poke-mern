@@ -32,7 +32,18 @@ app.get('/', function(req, res) {
 })
 
 app.get('/api/users', (req, res) => {
-  res.status(200).send(JSON.stringify(test_data))
+  res.json(test_data)
+})
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
+app.post('/api/users', (req, res) => {
+  console.log("request body: " + req.body)
+  let newUser = req.body
+  newUser.id = test_data.length + 1
+  test_data.push(newUser)
+  res.status(200).send(JSON.stringify(newUser))
 })
 
 // Error Handler for any other type of request
