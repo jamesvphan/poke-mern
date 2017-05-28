@@ -27,14 +27,14 @@ let userTwo = new User({
   username: "hello"
 })
 // db.User.insert(userOne)
-userOne.save(function(err) {
-  if (err) console.log(err);
-  console.log("User saved!")
-})
-userTwo.save(function(err) {
-  if (err) console.log(err);
-  console.log("User saved!")
-})
+// userOne.save(function(err) {
+//   if (err) console.log(err);
+//   console.log("User saved!")
+// })
+// userTwo.save(function(err) {
+//   if (err) console.log(err);
+//   console.log("User saved!")
+// })
 
 // Create APP
 var app = express()
