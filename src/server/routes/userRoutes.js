@@ -5,12 +5,11 @@ const router = express.Router //provides use to define routes
 
 // Define User routes
 
-router.get('/', (req, res) => {
-  User.find((err, users) => {
-    if (err) { console.log(err) }
-    res.json(users)
-  })
-})
-
+// router.get('/', (req, res) => {
+//   User.find((err, users) => {
+//     if (err) { console.log(err) }
+//     res.json(users)
+//   })
+// })
 
 module.exports = router
