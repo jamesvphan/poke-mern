@@ -4,10 +4,11 @@ export default function accountReducer(state = {
   team: []
 }, action) {
   switch(action.type) {
-    case 'LOAD_USER':
-      return {
-
-      }
+    case 'LOAD_ACCOUNT':
+      debugger
+      return Object.assign({}, state, {
+        username: action.account.username
+      })
     default:
       return state
   }
