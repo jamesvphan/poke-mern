@@ -72,9 +72,8 @@ class App extends Component {
     })
     return (
       <div>
-        <h1>Welcome...</h1>
+        <h1>Welcome to Poke-Gotchi!</h1>
         <form onSubmit={this.handleOnSubmit}>
-        ID: <input type="text" name="id" onChange={this.handleOnChange}/>
         Username<input type="text" name="username" onChange={this.handleOnChange}/>
         <input type="submit"/>
         </form>

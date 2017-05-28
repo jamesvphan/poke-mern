@@ -13,8 +13,11 @@ import rootReducer from './reducers/rootReducer.js'
 // import './styles/App.css'
 
 const history = createHistory()
-const rMiddleware =
-const store = createStore(rootReducer, applyMiddleware(thunk))
+// const rMiddleware =
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+)
 
 ReactDOM.render(
   <Provider store={store}>
