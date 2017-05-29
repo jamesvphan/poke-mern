@@ -9,6 +9,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 // FILE DEPENDENCIES
 import App from './App'
+import Pokemon from './components/pokemon/pokemon.js'
 import rootReducer from './reducers/rootReducer.js'
 // import './styles/App.css'
 
@@ -23,7 +24,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <div>
-        <Route path='/' component={App}/>
+        <Route path='/' component={App}></Route>
+        <Route path='/api/users/test' component={Pokemon}></Route>
       </div>
     </Router>
   </Provider>,

@@ -6,7 +6,10 @@
   "scripts": {
     "start": "NODE_PATH=$NODE_PATH:./src node server",
     "dev": "npm start & webpack-dev-server --progress --colors",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "dev-server": "NODE_PATH=$NODE_PATH:./src node server",
+    "dev-client": "webpack-dev-server --port 3001",
+    "test": "npm run dev-server & npm run dev-client"
   },
   "keywords": [],
   "author": "",

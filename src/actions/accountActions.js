@@ -5,7 +5,7 @@ const url = 'http://localhost:3000/api'
 export const loadAccount = (username) => {
   return(dispatch) => {
     axios
-    .get(`${url}/users`, {
+    .get(`${url}/users/test`, {
       headers: {username: username}
     })
     .then(resp => {
