@@ -38,7 +38,6 @@ class App extends Component {
     axios
     .get(`http://pokeapi.co/api/v2/pokemon/${this.state.pokemon}`)
     .then(resp => {
-      debugger
       console.log(resp.data)
       this.setState({
         current: resp.data
@@ -86,10 +85,7 @@ class App extends Component {
           <input type="submit"/>
         </form>
         {this.state.username}
-        <form onSubmit={this.handleAddPokemon}>
-          <input type="text" name="pokemon" placeholder="Pokemon" onChange={this.handleOnChange}/>
-          <button>Find</button>
-        </form>
+
         <ol>
           <li>{this.state.username}</li>
         </ol>
