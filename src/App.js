@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import PokemonContainer from './components/pokemon/pokemonContainer.js'
+
 class App extends Component {
   constructor() {
     super()
@@ -93,6 +95,7 @@ class App extends Component {
         </ol>
         Found: {this.state.current.name}
         {/* <img alt="clefairy!" src={`https://assets-lmcrhbacy2s.stackpathdns.com/img/pokemon/animated/${this.state.pokemon}.gif`} /> */}
+        <PokemonContainer />
       </div>
     )
   }

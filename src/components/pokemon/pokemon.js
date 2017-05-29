@@ -2,32 +2,32 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 class Pokemon extends Component {
-  constructor() {
-    super()
+  // constructor() {
+  //   super()
+  //
+  //   this.state = {
+  //     user: ''
+  //   }
+  // }
 
-    this.state = {
-      user: ''
-    }
-  }
-
-  componentWillMount() {
-    axios
-    .get('http://localhost:3000/api/users/test')
-    .then(resp => {
-      debugger
-      this.setState({
-        user: resp.data
-      })
-    })
-    .catch(errors => {
-      console.log(errors)
-    })
-  }
+  // componentWillMount() {
+  //   axios
+  //   .get('http://localhost:3000/api/users/test')
+  //   .then(resp => {
+  //     debugger
+  //     this.setState({
+  //       user: resp.data
+  //     })
+  //   })
+  //   .catch(errors => {
+  //     console.log(errors)
+  //   })
+  // }
 
   render() {
     return (
       <div>
-        {this.state.user.username}
+        <h1>{this.props.pokemon.name}</h1>
       </div>
     )
   }
