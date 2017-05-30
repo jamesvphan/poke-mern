@@ -21,7 +21,12 @@ class PokemonContainer extends Component {
 
   handleAddPokemon(ev) {
     ev.preventDefault()
-    this.props.addPokemon(this.state.pokemonName)
+    debugger
+    if (this.props.team.length === 6) {
+      console.log("too many pokemon")
+    } else {
+      this.props.addPokemon(this.state.pokemonName)
+    }
   }
 
   handleOnChange(ev) {
@@ -49,7 +54,7 @@ class PokemonContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    team: state.team
+    team: state.pokemon
   }
 }
 
