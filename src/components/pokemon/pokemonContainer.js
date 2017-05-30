@@ -9,11 +9,7 @@ class PokemonContainer extends Component {
     super()
 
     this.state = {
-      pokemonName: "",
-      team:
-      [{
-        name: "bulbsaur"
-      }]
+      pokemonName: ''
     }
     this.handleOnChange = this.handleOnChange.bind(this)
     this.handleAddPokemon = this.handleAddPokemon.bind(this)
@@ -21,7 +17,6 @@ class PokemonContainer extends Component {
 
   handleAddPokemon(ev) {
     ev.preventDefault()
-    debugger
     if (this.props.team.length === 6) {
       console.log("too many pokemon")
     } else {
@@ -37,7 +32,7 @@ class PokemonContainer extends Component {
   }
 
   render() {
-    const pokemon_team = this.state.team.map((pokemon, index) => {
+    const pokemon_team = this.props.team.map((pokemon, index) => {
       return <Pokemon pokemon={pokemon} key={index}/>
     })
     return (

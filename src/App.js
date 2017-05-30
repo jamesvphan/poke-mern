@@ -58,17 +58,6 @@ class App extends Component {
   handleOnSubmit(ev) {
     ev.preventDefault()
     this.props.loadAccount(this.state.username)
-    // let url = 'http://localhost:3000/api/users'
-    // let newUser = {
-    //   username: this.state.username
-    // }
-    // let fetchData = {
-    //   method: "POST",
-    //   body: newUser,
-    //   headers: new Headers({
-		//     'Content-Type': 'text/json'
-	  //   })
-    // }
     this.setState({
       id: "",
       username: ""
@@ -84,13 +73,6 @@ class App extends Component {
           Username<input type="text" name="username" onChange={this.handleOnChange}/>
           <input type="submit"/>
         </form>
-        {this.state.username}
-
-        <ol>
-          <li>{this.state.username}</li>
-        </ol>
-        Found: {this.state.current.name}
-        {/* <img alt="clefairy!" src={`https://assets-lmcrhbacy2s.stackpathdns.com/img/pokemon/animated/${this.state.pokemon}.gif`} /> */}
         <PokemonContainer />
       </div>
     )
