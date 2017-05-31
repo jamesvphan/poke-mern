@@ -36,12 +36,14 @@ class PokemonContainer extends Component {
       return <Pokemon pokemon={pokemon} key={index}/>
     })
     return (
-      <div>
+      <div className='container'>
         <form onSubmit={this.handleAddPokemon}>
           <input type="text" name="pokemonName" placeholder="Pokemon" onChange={this.handleOnChange}/>
           <button>Find</button>
         </form>
-        {pokemon_team}
+        <div className='row'>
+          {pokemon_team}
+        </div>
       </div>
     )
   }

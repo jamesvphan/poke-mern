@@ -66,11 +66,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className='container text-center'>
         <Link to='/api/users/test'><button>Back to Notebooks</button></Link>
         <h1>Welcome to Poke-Gotchi!</h1>
         <form onSubmit={this.handleOnSubmit}>
-          Username<input type="text" name="username" onChange={this.handleOnChange}/>
+          <input type="text" name="username" placeholder="username" onChange={this.handleOnChange}/>
           <input type="submit"/>
         </form>
         <PokemonContainer />
