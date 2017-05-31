@@ -66,7 +66,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <Link to='/api/users/test'><button>Back to Notebooks</button></Link>
         <h1>Welcome to Poke-Gotchi!</h1>
         <form onSubmit={this.handleOnSubmit}>

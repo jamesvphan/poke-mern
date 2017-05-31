@@ -12,7 +12,7 @@ import thunk from 'redux-thunk'
 import App from './App'
 import Pokemon from './components/pokemon/pokemon.js'
 import rootReducer from './reducers/rootReducer.js'
-// import './styles/App.css'
+import './styles/App.css'
 
 const history = createHistory()
 const rMiddleware = routerMiddleware(history)
